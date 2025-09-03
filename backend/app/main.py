@@ -15,7 +15,8 @@ app = FastAPI(
     version="1.0.0"
 )
 
-origins = ["http://localhost:3000"]
+# ... vos autres routes d'API
+origins = ["https://synapse-alpha-black.vercel.app","http://localhost:3000"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
