@@ -28,6 +28,7 @@ const translations = {
     showPassword: 'Show password',
     hidePassword: 'Hide password',
     switchToFrench: 'Français',
+    switchToEnglish: 'English',
     unexpectedError: 'An unexpected error occurred.',
     rememberMe: 'Remember me',
     forgotPassword: 'Forgot password?'
@@ -44,6 +45,7 @@ const translations = {
     showPassword: 'Afficher le mot de passe',
     hidePassword: 'Masquer le mot de passe',
     switchToEnglish: 'English',
+    switchToFrench: 'Français',
     unexpectedError: 'Une erreur inattendue s\'est produite.',
     rememberMe: 'Se souvenir de moi',
     forgotPassword: 'Mot de passe oublié ?'

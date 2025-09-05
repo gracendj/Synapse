@@ -67,10 +67,13 @@ export default function WorkbenchPage() {
   const [filters, setFilters] = useState<WorkbenchFilters>({
     interactionType: "all",
     dateRange: { start: "", end: "" },
-    individuals: [],
+    individuals: [], 
     minInteractions: 0,
-    contactWhitelist: [],
+    contactWhitelist: [], 
     durationRange: { min: 0, max: 3600 },
+    linkTypes: [],
+    minStrengthScore: 0,
+    showWeakLinks: false,
   });
 
   const isClient = typeof window !== 'undefined';
@@ -167,14 +170,14 @@ export default function WorkbenchPage() {
       console.log("Transforming fetched backend data for visualization:", listingsDataFromBackend);
       // The backend sends clean data. We map it back to the "raw" Excel header
       // format that the graph components expect.
-      const transformedListings = listingsDataFromBackend.map(row => ({
-        "Numéro Appelant": row.caller_num,
-        "Numéro appelé": row.callee_num,
-        "Date Début appel": row.timestamp,
-        "Durée appel": row.duration_str,
-        "IMEI numéro appelant": row.imei,
-        "Localisation": row.location,
-      }));
+        const transformedListings = listingsDataFromBackend.network.edges.map(edge => ({
+    "Numéro Appelant": edge.properties.caller_num,
+    "Numéro appelé": edge.properties.callee_num,
+    "Date Début appel": edge.properties.timestamp,
+    "Durée appel": edge.properties.duration_str,
+    "IMEI numéro appelant": edge.properties.imei,
+    "Localisation": edge.properties.location,
+  }));
 
       return { 
         listings: transformedListings, 
